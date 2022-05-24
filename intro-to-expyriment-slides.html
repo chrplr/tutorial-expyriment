@@ -32,55 +32,56 @@ Christophe@pallier.org
 </div>
 <div class="slide" id="TOC">
 <ul>
-<li><a href="#expyriment">Expyriment?</a></li>
-<li><a href="#examples-of-scripts-n-the-net">Examples of scripts n the Net</a></li>
-<li><a href="#stimuli">Stimuli</a></li>
+<li><a href="#why-expyriment">Why Expyriment?</a></li>
+<li><a href="#requirements-for-this-tutorial">Requirements for this tutorial</a></li>
+<li><a href="#first-example">First example</a></li>
 <li><a href="#minimal-skeleton-for-an-expyriment-script">Minimal skeleton for an expyriment script</a></li>
+<li><a href="#stimuli">Stimuli</a></li>
 <li><a href="#simple-detection-of-visual-events">simple detection of visual events</a></li>
 <li><a href="#simple-detection-of-audio-events">simple detection of audio events</a></li>
 <li><a href="#simple-decision-parity-task">simple decision (parity task)</a></li>
-<li><a href="#simple-decisions-left-vs-right">Simple decisions (left vs right)</a></li>
-<li><a href="#introducing-trial-and-block-objects">Introducing <code>Trial</code> and <code>Block</code> objects</a></li>
+<li><a href="#simple-decisions-left-vs.-right">Simple decisions (left vs. right)</a></li>
+<li><a href="#trial-and-block-objects"><code>Trial</code> and <code>Block</code> objects</a></li>
 <li><a href="#more-complex-examples">More complex examples:</a></li>
 </ul>
 </div>
-<div id="expyriment" class="slide section level1">
-<h1>Expyriment?</h1>
+<div id="why-expyriment" class="slide section level1">
+<h1>Why Expyriment?</h1>
 <p>Some psychology experiment generators:</p>
 <ul>
 <li><p><a href="http://psychtoolbox.org">Psychtoolbox</a> (MATLAB/Octave).</p></li>
-<li><p><a href="https://www.psychopy.org">Psychopy</a> (either a Python library, or self-contained with a Builder “à la” Eprime)</p></li>
+<li><p><a href="https://www.psychopy.org">Psychopy</a> (either a Python library, or self-contained with a Builder “à la” Eprime))</p></li>
 <li><p><a href="https://www.expyriment.org">Expyriment</a> (a Python library).</p></li>
 </ul>
 <p>Pros:</p>
 <ul>
-<li><p>expyriment is cleaner and simpler than the previous two (in <em>my</em> opinion). It promotes good programming practices (readbility!).</p></li>
-<li><p>It is good enough for most experiments (the only limitation I encountered so far was that I coulkd not presente simultaneaously 2 videos).</p></li>
-<li><p>The timing is fine if you use it correctly (setting blocking to VSYNC, etc.). But as always, for time critical application, one must check the timings with external equipement as this is hardware/driver depedent.</p></li>
+<li><p>Expyriment is cleaner and simpler than the other two (in my opinion). It promotes good programming practices (readability!).</p></li>
+<li><p>It is good enough for most experiments (so far, the only tasks I ould not program involved the presentation of two simultaneous videos).</p></li>
+<li><p>The timing is ok when programmed correctly (VSYNC blocking,… See Retinotopy demo). For time critical applications, one must check timings as this is hardware/driver dependent.</p></li>
 </ul>
 <p>Cons:</p>
 <ul>
-<li><p>Small user community =&gt; lack of documentation and examples on the web (yet the - the API is very well-documented (see <a href="https://docs.expyriment.org/expyriment.html" class="uri">https://docs.expyriment.org/expyriment.html</a>)).</p></li>
-<li><p>dependency on the Python module <code>pygame 1.9.6</code> which is deprecated, which can cause problem during the installation.</p></li>
+<li><p>As it relies on Python, it is not possible to run remote on-line experiments.</p></li>
+<li><p>Small user community =&gt; lack of documentation and examples on the web (yet the API is very well-documented (see <a href="https://docs.expyriment.org/expyriment.html" class="uri">https://docs.expyriment.org/expyriment.html</a>)).</p></li>
+<li><p>Dependency on the Python module <code>pygame 1.9.6</code> can cause problems during the installation.</p></li>
 </ul>
 </div>
-<div id="examples-of-scripts-n-the-net" class="slide section level1">
-<h1>Examples of scripts n the Net</h1>
-<p>As the community is very small, there are very few tutorials and examples on the Net. Yet:</p>
-<ol style="list-style-type: decimal">
-<li><p><a href="https://docs.expyriment.org/old/0.8.0/Examples.html" class="uri">https://docs.expyriment.org/old/0.8.0/Examples.html</a> (sources at <a href="https://github.com/expyriment/expyriment-stash/tree/master/examples/behavioural" class="uri">https://github.com/expyriment/expyriment-stash/tree/master/examples/behavioural</a>)</p></li>
-<li><p><a href="https://mbroedl.github.io/cognitive-tasks-for-expyriment/" class="uri">https://mbroedl.github.io/cognitive-tasks-for-expyriment/</a></p></li>
-<li><p><a href="https://github.com/chrplr/PCBS/tree/master/experiments" class="uri">https://github.com/chrplr/PCBS/tree/master/experiments</a> (used in my lectures <a href="https://pcbs.readthedocs.io/en/latest/running-experiments.html" class="uri">https://pcbs.readthedocs.io/en/latest/running-experiments.html</a>)</p></li>
-</ol>
+<div id="requirements-for-this-tutorial" class="slide section level1">
+<h1>Requirements for this tutorial</h1>
+<ul>
+<li><p>A Python environment (e.g. Anaconda Python 3)</p></li>
+<li><p>The expyriment module (check installation instructions at <a href="https://docs.expyriment.org/Installation.html" class="uri">https://docs.expyriment.org/Installation.html</a>)</p></li>
+<li><p>A local copy of <a href="https://github.com/chrplr/tutorial-expyriment.git" class="uri">https://github.com/chrplr/tutorial-expyriment.git</a> (you can clone it with git, or download the zip file)</p></li>
+</ul>
 </div>
-<div id="stimuli" class="slide section level1">
-<h1>Stimuli</h1>
+<div id="first-example" class="slide section level1">
+<h1>First example</h1>
 <p>Guess what the following piece of code does:</p>
 <pre><code>from expyriment import stimuli
 
-fixation = stimuli.FixCross().preload()
-picture = stimuli.Picture(&quot;cat.png&quot;).preload()
-sound = stimuli.Audio(&quot;sentence.wav&quot;).preload()
+fixation = stimuli.FixCross()
+picture = stimuli.Picture(&quot;cat.png&quot;)
+sound = stimuli.Audio(&quot;sentence.wav&quot;)
 
 fixation.present()
 exp.clock.wait(1000)
@@ -88,10 +89,6 @@ picture.present()
 sound.present()
 
 key, rt = exp.keyboard.wait_char()</code></pre>
-<ul>
-<li><p><code>experiment.stimuli</code> provides basic stimuli (circle, polygon, cross, text, sound, image…). See <a href="https://docs.expyriment.org/expyriment.stimuli.html" class="uri">https://docs.expyriment.org/expyriment.stimuli.html</a></p></li>
-<li><p><code>expyriment.stimuli.extras</code> provides more advanced stimuli, e.g. Gabor pattern, DotCloud, etc.</p></li>
-</ul>
 </div>
 <div id="minimal-skeleton-for-an-expyriment-script" class="slide section level1">
 <h1>Minimal skeleton for an expyriment script</h1>
@@ -115,20 +112,27 @@ sound.present()
 key, rt = exp.keyboard.wait_char(&#39; &#39;)
 
 control.end()</code></pre>
-<p>Execute this script (You will need to press the space bar to end it)</p>
+<p>Execute this code (You will need to press the space bar to end it)</p>
+</div>
+<div id="stimuli" class="slide section level1">
+<h1>Stimuli</h1>
+<ul>
+<li><p><code>experiment.stimuli</code> provides basic stimuli (circle, polygon, cross, text, sound, image…). See <a href="https://docs.expyriment.org/expyriment.stimuli.html" class="uri">https://docs.expyriment.org/expyriment.stimuli.html</a></p></li>
+<li><p><code>expyriment.stimuli.extras</code> provides more advanced stimuli like Gabor pattern, DotCloud, …</p></li>
+</ul>
 </div>
 <div id="simple-detection-of-visual-events" class="slide section level1">
 <h1>simple detection of visual events</h1>
 <ol style="list-style-type: decimal">
-<li><p>Download <a href="https://github.com/chrplr/PCBS/blob/master/experiments/xpy_simple_reaction_times/simple-detection-visual-expyriment.py">simple-detection-visual-expyriment.py</a></p></li>
-<li><p>Run it, than check the results in the subfolder <code>data</code></p></li>
-<li><p>Let’s have a look at it.</p></li>
+<li><p>Download <a href="examples/simple_reaction_times/simple-detection-visual-expyriment.py">simple-detection-visual-expyriment.py</a></p></li>
+<li><p>Run it, then check the results in the subfolder <code>data</code>. Note that one csv file pe subject is generated.</p></li>
+<li><p>Have a look at the source code.</p></li>
 </ol>
 </div>
 <div id="simple-detection-of-audio-events" class="slide section level1">
 <h1>simple detection of audio events</h1>
 <ol style="list-style-type: decimal">
-<li><p>Download <a href="https://github.com/chrplr/PCBS/blob/master/experiments/xpy_simple_reaction_times/simple-detection-audio-expyriment.py">simple-detection-audio-expyriment.py</a>, as well as the</p></li>
+<li><p>Download <a href="examples/simple_reaction_times/simple-detection-audio-expyriment.py">simple-detection-audio-expyriment.py</a>, as well as the</p></li>
 <li><p>Run it.</p></li>
 <li><p>Compare it with the visual version.</p></li>
 </ol>
@@ -136,29 +140,30 @@ control.end()</code></pre>
 <div id="simple-decision-parity-task" class="slide section level1">
 <h1>simple decision (parity task)</h1>
 <ul>
-<li><p>Run <a href="https://github.com/chrplr/PCBS/blob/master/experiments/xpy_parity_decision/parity.py">parity.py</a></p></li>
-<li><p>Run <a href="https://github.com/chrplr/PCBS/blob/master/experiments/xpy_parity_decision/parity_feedback.py">parity_feedback.py</a></p></li>
+<li><p>Run <a href="examples/parity_decision/parity.py">parity.py</a></p></li>
+<li><p>Run <a href="examples/parity_decision/parity_feedback.py">parity_feedback.py</a></p></li>
+<li><p>See also <a href="examples/parity_short/really_short_exp.py">parity_short.py</a></p></li>
 </ul>
 </div>
-<div id="simple-decisions-left-vs-right" class="slide section level1">
-<h1>Simple decisions (left vs right)</h1>
-<p><a href="https://github.com/chrplr/PCBS/blob/master/experiments/xpy_left_right_detection_task/left_right_detection.py">left_right_detection.py</a></p>
+<div id="simple-decisions-left-vs.-right" class="slide section level1">
+<h1>Simple decisions (left vs. right)</h1>
+<p><a href="examples/left_right_detection_task/left_right_detection.py">left_right_detection.py</a></p>
 </div>
-<div id="introducing-trial-and-block-objects" class="slide section level1">
-<h1>Introducing <code>Trial</code> and <code>Block</code> objects</h1>
-<p>The <code>design</code> submodule of expyriment provides <code>Trial</code> and <code>Block</code> objects to structe and exepriment. (Note that these objects are not necessary to present stimuli.)</p>
+<div id="trial-and-block-objects" class="slide section level1">
+<h1><code>Trial</code> and <code>Block</code> objects</h1>
+<p>The <code>design</code> submodule of expyriment provides <code>Trial</code> and <code>Block</code> objects to structure the experiment (Note that these objects are in no way necessary to present stimuli.)</p>
 <ul>
-<li><p><a href="https://github.com/chrplr/PCBS/blob/master/experiments/xpy_simple_reaction_times/grey-levels.py">grey-levels.py</a></p></li>
-<li><p><a href="https://github.com/chrplr/PCBS/blob/master/experiments/xpy_left_right_detection_task/left_right_center_detection.py">left_right_center_detection.py</a></p></li>
-<li><p><a href="https://github.com/chrplr/PCBS/blob/master/experiments/xpy_simple_reaction_times/simple-detection-audiovisual.py">simple-detection-audiovisual.py</a></p></li>
+<li><p><a href="examples/simple_reaction_times/grey-levels.py">grey-levels.py</a> illustrates the use of <code>set_factor()</code> and <code>get_factor()</code> for trials.</p></li>
+<li><p><a href="examples/left_right_detection_task/left_right_center_detection.py">left_right_center_detection.py</a> q</p></li>
+<li><p><a href="examples/simple_reaction_times/simple-detection-audiovisual.py">simple-detection-audiovisual.py</a></p></li>
 </ul>
 </div>
 <div id="more-complex-examples" class="slide section level1">
 <h1>More complex examples:</h1>
 <ul>
-<li><p>Posner ANT task: <a href="https://github.com/chrplr/PCBS/tree/master/experiments/xpy_Posner_attention_networks_task" class="uri">https://github.com/chrplr/PCBS/tree/master/experiments/xpy_Posner_attention_networks_task</a></p></li>
-<li><p>Lexical Decision tasl: &lt;&gt;</p></li>
-<li><p>Mental Logic Task: &lt;&gt;</p></li>
+<li><p>Posner ANT task: <examples/Posner_attention_networks_task></p></li>
+<li><p>Lexical Decision task: &lt;examples/lexical_decision/lexdec_v3.py&gt;</p></li>
+<li><p>Mental Logic Task: <examples/mental_logic_card_game/></p></li>
 </ul>
 </div>
 </body>
