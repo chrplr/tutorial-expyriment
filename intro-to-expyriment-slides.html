@@ -39,10 +39,11 @@ Christophe@pallier.org
 <li><a href="#stimuli">Stimuli</a></li>
 <li><a href="#simple-detection-of-visual-events">simple detection of visual events</a></li>
 <li><a href="#simple-detection-of-audio-events">simple detection of audio events</a></li>
-<li><a href="#simple-decision-parity-task">simple decision (parity task)</a></li>
+<li><a href="#simple-decision-parity-task">Simple decision (parity task)</a></li>
 <li><a href="#simple-decisions-left-vs.-right">Simple decisions (left vs. right)</a></li>
 <li><a href="#trial-and-block-objects"><code>Trial</code> and <code>Block</code> objects</a></li>
 <li><a href="#more-complex-examples">More complex examples:</a></li>
+<li><a href="#timing">Timing</a></li>
 </ul>
 </div>
 <div id="why-expyriment" class="slide section level1">
@@ -56,13 +57,13 @@ Christophe@pallier.org
 <p>Pros:</p>
 <ul>
 <li><p>Expyriment is cleaner and simpler than the other two (in my opinion). It promotes good programming practices (readability!).</p></li>
-<li><p>It is good enough for most experiments (so far, the only tasks I ould not program involved the presentation of two simultaneous videos).</p></li>
-<li><p>The timing is ok when programmed correctly (VSYNC blocking,… See Retinotopy demo). For time critical applications, one must check timings as this is hardware/driver dependent.</p></li>
+<li><p>It is good enough for most experiments (so far, the only task I could not program involved the presentation of two simultaneous videos).</p></li>
+<li><p>The timing is fine when programmed correctly (VSYNC blocking,… See Retinotopy demo). For time critical applications, one must check timings as this is hardware/driver dependent.</p></li>
 </ul>
 <p>Cons:</p>
 <ul>
 <li><p>As it relies on Python, it is not possible to run remote on-line experiments.</p></li>
-<li><p>Small user community =&gt; lack of documentation and examples on the web (yet the API is very well-documented (see <a href="https://docs.expyriment.org/expyriment.html" class="uri">https://docs.expyriment.org/expyriment.html</a>)).</p></li>
+<li><p>Small user community =&gt; lack of documentation and examples on the web (yet the <a href="https://docs.expyriment.org/expyriment.html">interface</a> is very well-documented.</p></li>
 <li><p>Dependency on the Python module <code>pygame 1.9.6</code> can cause problems during the installation.</p></li>
 </ul>
 </div>
@@ -71,12 +72,14 @@ Christophe@pallier.org
 <ul>
 <li><p>A Python environment (e.g. Anaconda Python 3)</p></li>
 <li><p>The expyriment module (check installation instructions at <a href="https://docs.expyriment.org/Installation.html" class="uri">https://docs.expyriment.org/Installation.html</a>)</p></li>
-<li><p>A local copy of <a href="https://github.com/chrplr/tutorial-expyriment.git" class="uri">https://github.com/chrplr/tutorial-expyriment.git</a> (you can clone it with git, or download the zip file)</p></li>
+<li><p>A local copy of <a href="https://github.com/chrplr/tutorial-expyriment.git" class="uri">https://github.com/chrplr/tutorial-expyriment.git</a>, which can obtain by cloning with git:</p>
+<pre><code>   git clone https://github.com/chrplr/tutorial-expyriment</code></pre>
+<p>or by downloading <a href="https://github.com/chrplr/tutorial-expyriment/archive/refs/heads/main.zip">here</a></p></li>
 </ul>
 </div>
 <div id="first-example" class="slide section level1">
 <h1>First example</h1>
-<p>Guess what the following piece of code does:</p>
+<p>Guess what the following piece of code is meant to do:</p>
 <pre><code>from expyriment import stimuli
 
 fixation = stimuli.FixCross()
@@ -112,21 +115,32 @@ sound.present()
 key, rt = exp.keyboard.wait_char(&#39; &#39;)
 
 control.end()</code></pre>
-<p>Execute this code (You will need to press the space bar to end it)</p>
+<p>Execute this code in <code>ipython</code> (or with <code>python example_01.py</code>)</p>
+<p>Note: You will need to press the space bar to quit it.</p>
 </div>
 <div id="stimuli" class="slide section level1">
 <h1>Stimuli</h1>
 <ul>
 <li><p><code>experiment.stimuli</code> provides basic stimuli (circle, polygon, cross, text, sound, image…). See <a href="https://docs.expyriment.org/expyriment.stimuli.html" class="uri">https://docs.expyriment.org/expyriment.stimuli.html</a></p></li>
-<li><p><code>expyriment.stimuli.extras</code> provides more advanced stimuli like Gabor pattern, DotCloud, …</p></li>
+<li><p><code>expyriment.stimuli.extras</code> provides more advanced stimuli like Gabor pattern, DotCloud, (you need to )…</p></li>
 </ul>
 </div>
 <div id="simple-detection-of-visual-events" class="slide section level1">
 <h1>simple detection of visual events</h1>
 <ol style="list-style-type: decimal">
 <li><p>Download <a href="examples/simple_reaction_times/simple-detection-visual-expyriment.py">simple-detection-visual-expyriment.py</a></p></li>
-<li><p>Run it, then check the results in the subfolder <code>data</code>. Note that one csv file pe subject is generated.</p></li>
-<li><p>Have a look at the source code.</p></li>
+<li><p>Run it, then check the results in the subfolder <code>data</code>. Note that:</p></li>
+</ol>
+<ul>
+<li><p>there is one <code>.xpd</code> file per subject (the subject’s number is automatically incremented each time you launch the expyriment script).</p></li>
+<li><p>this <code>.xpd</code> file is actually a comma-separated-values (csv) file, with additionnal information in lines starting with <code>#</code>.</p>
+<p>You can import this file data in Python into a pandas dataframe using:</p>
+<pre><code>pandas.read_csv(&#39;filename.xpd&#39;, comment=&#39;#&#39;)</code></pre>
+<p>or in R:</p>
+<pre><code>read.csv(&#39;filename.xpd&#39;, comment.char = &#39;#&#39;)</code></pre></li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Have a look at the source code.</li>
 </ol>
 </div>
 <div id="simple-detection-of-audio-events" class="slide section level1">
@@ -134,15 +148,17 @@ control.end()</code></pre>
 <ol style="list-style-type: decimal">
 <li><p>Download <a href="examples/simple_reaction_times/simple-detection-audio-expyriment.py">simple-detection-audio-expyriment.py</a>, as well as the</p></li>
 <li><p>Run it.</p></li>
-<li><p>Compare it with the visual version.</p></li>
+<li><p>Compare it with the visual version.</p>
+<pre><code> meld simple-detection-visual-expyriment.py simple-detection-audio-expyriment.py</code></pre>
+<p>and notice how minimal the differences are.</p></li>
 </ol>
 </div>
 <div id="simple-decision-parity-task" class="slide section level1">
-<h1>simple decision (parity task)</h1>
+<h1>Simple decision (parity task)</h1>
 <ul>
 <li><p>Run <a href="examples/parity_decision/parity.py">parity.py</a></p></li>
 <li><p>Run <a href="examples/parity_decision/parity_feedback.py">parity_feedback.py</a></p></li>
-<li><p>See also <a href="examples/parity_short/really_short_exp.py">parity_short.py</a></p></li>
+<li><p>See also <a href="examples/parity_short/really_short_exp.py">parity_short.py</a> (very nice example from expyriment’s documentation)</p></li>
 </ul>
 </div>
 <div id="simple-decisions-left-vs.-right" class="slide section level1">
@@ -161,9 +177,34 @@ control.end()</code></pre>
 <div id="more-complex-examples" class="slide section level1">
 <h1>More complex examples:</h1>
 <ul>
-<li><p>Posner ANT task: <examples/Posner_attention_networks_task></p></li>
-<li><p>Lexical Decision task: &lt;examples/lexical_decision/lexdec_v3.py&gt;</p></li>
-<li><p>Mental Logic Task: <examples/mental_logic_card_game/></p></li>
+<li><p><a href="examples/Posner_attention_networks_task">Posner ANT task</a></p>
+<pre><code>  cd examples/Posner_attention_networks_task
+  python posner_task.py</code></pre></li>
+<li><p><a href="examples/lexical_decision/">Lexical Decision task</a></p>
+<pre><code>  cd examples/lexical_decision
+  python lexdec_v3.py stimuli.csv</code></pre></li>
+<li><p><a href="examples/mental_logic_card_game/">Mental Logic Task</a>: illustrates the use of <code>stimuli.Canvas</code> to present several pictures simultaneaously)</p>
+<pre><code>  cd examples/mental_logic_card_game/
+  python mental_logic_card_game.py</code></pre></li>
+<li><p><a href="https://github.com/chrplr/audiovis">Audiovis</a>: a general audio-visual stimuli presentation script.</p></li>
+</ul>
+</div>
+<div id="timing" class="slide section level1">
+<h1>Timing</h1>
+<ul>
+<li><p>Run:</p>
+<pre><code>  cd examples/tearing_test
+  python tearing-test.py</code></pre>
+<p>If the vertical bar appears broken or moves very fast, this means that the <code>present()</code> function is not blocking on (waiting for) vertical retrace.</p>
+<p>You may need to set up you video card to block on “vsync”.</p>
+<p>Under Linux, if you have a nVidia GPU, you need to run <code>nvidia-settings</code>. If you have an AMD GPU:</p>
+<pre><code>  sudo apt install xvattr
+  echo &quot;export vblank_mode=3&quot; &gt; /etc/profile.d/radeon.sh</code></pre>
+<p>See the documentation of the <code>expyriment.control.default.open_gl</code> at <a href="https://docs.expyriment.org/expyriment.control.defaults.html" class="uri">https://docs.expyriment.org/expyriment.control.defaults.html</a></p></li>
+<li><p>Read https://docs.expyriment.org/Timing.html</p></li>
+<li><p>We also provide a script to check duration of presetentation of a visual stimulus with a photodiode, and its synchrony with a sound:</p>
+<pre><code>  cd examples/check-audio-visual-timing
+  python check-audio-visual-timing.py</code></pre></li>
 </ul>
 </div>
 </body>
