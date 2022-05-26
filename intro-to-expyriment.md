@@ -201,3 +201,10 @@ q
 
         cd examples/check-audio-visual-timing
 		python check-audio-visual-timing.py
+
+
+# Other ressources 
+
+   *  <https://github.com/expyriment/expyriment-stash>
+
+   *  <https://mbroedl.github.io/cognitive-tasks-for-expyriment/>
