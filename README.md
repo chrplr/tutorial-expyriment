@@ -1,8 +1,8 @@
-# Tutorial introduction to Expyriment, a Python library for cognitive experiments.
+This site contains a tutorial introduction to Expyriment, a Python library for cognitive experiments.
 
-* The slides are available at <https://chrplr.github.io/tutorial-expyriment/intro-to-expyriment-slides.html> (They were generated from [intro-to-expyriment.md](https://github.com/chrplr/tutorial-expyriment/blob/main/intro-to-expyriment.md) by running `make`). 
+* You can read the [slides](https://chrplr.github.io/tutorial-expyriment/intro-to-expyriment-slides.html) (note: they were generated from [intro-to-expyriment.md](https://github.com/chrplr/tutorial-expyriment/blob/main/intro-to-expyriment.md) by running `make`). 
 
-* The scripts are located in the `[examples](https://github.com/chrplr/tutorial-expyriment/tree/main/examples)` subfolder.
+* The scripts are located in the [`examples`](https://github.com/chrplr/tutorial-expyriment/tree/main/examples) subfolder.
 
 You can clone this repository with git:
 
