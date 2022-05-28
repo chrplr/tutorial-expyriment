@@ -7,7 +7,13 @@ Rather than downloading them one by one, you can download the entire [repository
     git clone https://github.com/chrplr/tutorial-expyriment.git
 
 
-Note: [the slides](https://chrplr.github.io/tutorial-expyriment/intro-to-expyriment-slides.html) are generated from [intro-to-expyriment.md](https://github.com/chrplr/tutorial-expyriment/blob/main/intro-to-expyriment.md) by running `make`. 
+Notes: 
+
+* [the slides](https://chrplr.github.io/tutorial-expyriment/intro-to-expyriment-slides.html) are generated from [intro-to-expyriment.md](https://github.com/chrplr/tutorial-expyriment/blob/main/intro-to-expyriment.md) by running `make`. 
+
+* Some of the examples were copied from [expyriment-stash](https://github.com/expyriment/expyriment-stash)
+
+* Unless otherwise specified, all code is distributed under the GNU GENERAL PUBLIC LICENSE Version 3.
 
 Christophe Pallier <mailto:christophe@pallier.org> 
 

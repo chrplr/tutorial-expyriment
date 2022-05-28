@@ -126,15 +126,29 @@ control.end()</code></pre>
 <pre><code>read.csv(&#39;filename.xpd&#39;, comment.char = &#39;#&#39;)</code></pre></li>
 </ul>
 <ol start="3" type="1">
-<li>Have a look at the source code.</li>
+<li><p>Have a look at the source code.</p>
+<p>Its core consists of:</p>
+<pre><code>      target = stimuli.FixCross(size=(50, 50), line_width=4)
+      blankscreen = stimuli.BlankScreen()
+
+    for i_trial in range(N_TRIALS):
+        blankscreen.present()
+        waiting_time = random.randint(MIN_WAIT_TIME, MAX_WAIT_TIME)
+        exp.clock.wait(waiting_time)
+        target.present()
+        key, rt = exp.keyboard.wait(duration=MAX_RESPONSE_DELAY)
+        exp.data.add([i_trial, waiting_time, key, rt])</code></pre></li>
 </ol>
 <h1 id="simple-detection-of-audio-events">simple detection of audio events</h1>
 <ol type="1">
 <li><p>Download <a href="examples/simple_reaction_times/simple-detection-audio-expyriment.py">simple-detection-audio-expyriment.py</a>, as well as the</p></li>
 <li><p>Run it.</p></li>
-<li><p>Compare it with the visual version.</p>
+<li><p>Compare its source code with the one of the visual version, for example with:</p>
 <pre><code> meld simple-detection-visual-expyriment.py simple-detection-audio-expyriment.py</code></pre>
-<p>and notice how minimal the differences are.</p></li>
+<p>The only essential difference is the line:</p>
+<pre><code> target = stimuli.FixCross(size=(50, 50), line_width=4)</code></pre>
+<p>which was changed into</p>
+<pre><code> target = stimuli.Audio(&#39;click.wav&#39;)</code></pre></li>
 </ol>
 <h1 id="simple-decision-parity-task">Simple decision (parity task)</h1>
 <ul>

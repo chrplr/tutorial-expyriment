@@ -121,18 +121,36 @@ Note: You will need to press the space bar to quit it.
 
 3. Have a look at the source code.
 
+   Its core consists of:
+
+ 		     target = stimuli.FixCross(size=(50, 50), line_width=4)
+		     blankscreen = stimuli.BlankScreen()
+
+		   for i_trial in range(N_TRIALS):
+			   blankscreen.present()
+			   waiting_time = random.randint(MIN_WAIT_TIME, MAX_WAIT_TIME)
+			   exp.clock.wait(waiting_time)
+			   target.present()
+			   key, rt = exp.keyboard.wait(duration=MAX_RESPONSE_DELAY)
+			   exp.data.add([i_trial, waiting_time, key, rt])
+
 # simple detection of audio events
 
 1. Download [simple-detection-audio-expyriment.py](examples/simple_reaction_times/simple-detection-audio-expyriment.py), as well as the 
 
 2. Run it.
 
-3. Compare it with the visual version.
+3. Compare its source code with the one of the visual version, for example with:
 
         meld simple-detection-visual-expyriment.py simple-detection-audio-expyriment.py
 
-   and notice how minimal the differences are.
-   
+   The only essential difference is the line:
+
+        target = stimuli.FixCross(size=(50, 50), line_width=4)
+		
+   which was changed into
+
+	    target = stimuli.Audio('click.wav')
 
 
 # Simple decision (parity task)
