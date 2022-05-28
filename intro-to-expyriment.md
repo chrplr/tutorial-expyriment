@@ -2,6 +2,20 @@
 % Christophe@pallier.org
 % May 2022
 
+# Requirements for this tutorial
+
+1. A Python environment, e.g., [Anaconda Python 3](https://www.anaconda.com/products/distribution).
+
+2. The [expyriment module](https://www.expyriment.org) (check the installation instructions at <https://docs.expyriment.org/Installation.html>).
+
+3. A local copy of <https://github.com/chrplr/tutorial-expyriment.git>, which can obtain by by downloading this [zip file](https://github.com/chrplr/tutorial-expyriment/archive/refs/heads/main.zip) or with git:
+
+         git clone https://github.com/chrplr/tutorial-expyriment
+	  
+
+We assume that you know how to execute Python code from a command line in a terminal (see, e.g., <https://www.youtube.com/watch?v=2yhcWvBt7ZE>).
+
+
 # Why Expyriment?
 
 Some psychology experiment generators:
@@ -30,17 +44,6 @@ Cons:
 * Dependency on the Python module `pygame 1.9.6` can cause problems during the installation. 
 
 
-# Requirements for this tutorial
-
-* A Python environment (e.g. Anaconda Python 3)
-
-* The expyriment module (check installation instructions at <https://docs.expyriment.org/Installation.html>)
-
-* A local copy of <https://github.com/chrplr/tutorial-expyriment.git>, which can obtain by cloning with git:
-
-         git clone https://github.com/chrplr/tutorial-expyriment
-	  
-  or by downloading [here](https://github.com/chrplr/tutorial-expyriment/archive/refs/heads/main.zip)
 
 # First example
 
