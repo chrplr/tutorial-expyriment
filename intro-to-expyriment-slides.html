@@ -33,7 +33,6 @@ Christophe@pallier.org
 <div class="slide" id="TOC">
 <ul>
 <li><a href="#requirements-for-this-tutorial">Requirements for this tutorial</a></li>
-<li><a href="#why-expyriment">Why Expyriment?</a></li>
 <li><a href="#first-example">First example</a></li>
 <li><a href="#minimal-skeleton-for-an-expyriment-script">Minimal skeleton for an expyriment script</a></li>
 <li><a href="#stimuli">Stimuli</a></li>
@@ -44,6 +43,11 @@ Christophe@pallier.org
 <li><a href="#trial-and-block-objects"><code>Trial</code> and <code>Block</code> objects</a></li>
 <li><a href="#more-complex-examples">More complex examples:</a></li>
 <li><a href="#timing">Timing</a></li>
+<li><a href="#conclusion">Conclusion</a>
+<ul>
+<li><a href="#pros">Pros:</a></li>
+<li><a href="#cons">Cons:</a></li>
+</ul></li>
 <li><a href="#other-ressources">Other ressources</a></li>
 </ul>
 </div>
@@ -56,27 +60,6 @@ Christophe@pallier.org
 <pre><code>  git clone https://github.com/chrplr/tutorial-expyriment</code></pre></li>
 </ol>
 <p>We assume that you know how to execute Python code from a command line in a terminal (see, e.g., <a href="https://www.youtube.com/watch?v=2yhcWvBt7ZE" class="uri">https://www.youtube.com/watch?v=2yhcWvBt7ZE</a>).</p>
-</div>
-<div id="why-expyriment" class="slide section level1">
-<h1>Why Expyriment?</h1>
-<p>Some psychology experiment generators:</p>
-<ul>
-<li><p><a href="http://psychtoolbox.org">Psychtoolbox</a> (MATLAB/Octave).</p></li>
-<li><p><a href="https://www.psychopy.org">Psychopy</a> (either a Python library, or self-contained with a Builder “à la” Eprime))</p></li>
-<li><p><a href="https://www.expyriment.org">Expyriment</a> (a Python library).</p></li>
-</ul>
-<p>Pros:</p>
-<ul>
-<li><p>Expyriment is cleaner and simpler than the other two (in my opinion). It promotes good programming practices (readability!).</p></li>
-<li><p>It is good enough for most experiments (so far, the only task I could not program involved the presentation of two simultaneous videos).</p></li>
-<li><p>The timing is fine when programmed correctly (VSYNC blocking,… See Retinotopy demo). For time critical applications, one must check timings as this is hardware/driver dependent.</p></li>
-</ul>
-<p>Cons:</p>
-<ul>
-<li><p>As it relies on Python, it is not possible to run remote on-line experiments.</p></li>
-<li><p>Small user community =&gt; lack of documentation and examples on the web (yet the <a href="https://docs.expyriment.org/expyriment.html">interface</a> is very well-documented.</p></li>
-<li><p>Dependency on the Python module <code>pygame 1.9.6</code> can cause problems during the installation.</p></li>
-</ul>
 </div>
 <div id="first-example" class="slide section level1">
 <h1>First example</h1>
@@ -220,6 +203,21 @@ control.end()</code></pre>
 <li><p>We also provide a script to check duration of presetentation of a visual stimulus with a photodiode, and its synchrony with a sound:</p>
 <pre><code>  cd examples/check-audio-visual-timing
   python check-audio-visual-timing.py</code></pre></li>
+</ul>
+</div>
+<div id="conclusion" class="slide section level1">
+<h1>Conclusion</h1>
+<h3 id="pros">Pros:</h3>
+<ul>
+<li><p>Expyriment is a clean and simple psychology experiment generator. It promotes good programming practices (readability!).</p></li>
+<li><p>It is good enough for most experiments (so far, the only task I could not program involved the presentation of two simultaneous videos).</p></li>
+<li><p>The timing is fine when programmed correctly (VSYNC blocking,… See Retinotopy demo). For time critical applications, one must check timings as this is hardware/driver dependent.</p></li>
+</ul>
+<h3 id="cons">Cons:</h3>
+<ul>
+<li><p>As it relies on Python, it is not possible to run remote on-line experiments.</p></li>
+<li><p>Small user community =&gt; lack of documentation and examples on the web (yet the <a href="https://docs.expyriment.org/expyriment.html">interface</a> is very well-documented.</p></li>
+<li><p>Dependency on the Python module <code>pygame 1.9.6</code> can cause problems during the installation.</p></li>
 </ul>
 </div>
 <div id="other-ressources" class="slide section level1">

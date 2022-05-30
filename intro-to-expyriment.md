@@ -16,32 +16,8 @@
 We assume that you know how to execute Python code from a command line in a terminal (see, e.g., <https://www.youtube.com/watch?v=2yhcWvBt7ZE>).
 
 
-# Why Expyriment?
-
-Some psychology experiment generators:
-
-* [Psychtoolbox](http://psychtoolbox.org) (MATLAB/Octave). 
-   
-* [Psychopy](https://www.psychopy.org)  (either a Python library, or self-contained with a Builder "à la" Eprime))
-
-* [Expyriment](https://www.expyriment.org) (a Python library). 
 
 
-Pros:
-
-- Expyriment is cleaner and simpler than the other two (in my opinion). It promotes good programming practices (readability!).
-
-- It is good enough for most experiments (so far, the only task I could not program involved the presentation of two simultaneous videos).
-
-- The timing is fine when programmed correctly (VSYNC blocking,... See Retinotopy demo). For time critical applications, one must check timings as this is hardware/driver dependent. 
-
-Cons:
-
-* As it relies on Python, it is not possible to run remote on-line experiments.
-
-* Small user community => lack of documentation and examples on the web (yet the [interface](https://docs.expyriment.org/expyriment.html) is very well-documented.
-
-* Dependency on the Python module `pygame 1.9.6` can cause problems during the installation. 
 
 
 
@@ -224,8 +200,28 @@ q
 		python check-audio-visual-timing.py
 
 
+# Conclusion
+
+### Pros:
+
+- Expyriment is a clean and simple psychology experiment generator. It promotes good programming practices (readability!).
+
+- It is good enough for most experiments (so far, the only task I could not program involved the presentation of two simultaneous videos).
+
+- The timing is fine when programmed correctly (VSYNC blocking,... See Retinotopy demo). For time critical applications, one must check timings as this is hardware/driver dependent. 
+
+### Cons:
+
+* As it relies on Python, it is not possible to run remote on-line experiments.
+
+* Small user community => lack of documentation and examples on the web (yet the [interface](https://docs.expyriment.org/expyriment.html) is very well-documented.
+
+* Dependency on the Python module `pygame 1.9.6` can cause problems during the installation. 
+
+
 # Other ressources 
 
    *  <https://github.com/expyriment/expyriment-stash>
 
    *  <https://mbroedl.github.io/cognitive-tasks-for-expyriment/>
+
