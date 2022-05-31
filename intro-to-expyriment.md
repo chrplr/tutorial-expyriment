@@ -4,20 +4,21 @@
 
 # Requirements for this tutorial
 
-1. A Python environment, e.g., [Anaconda Python 3](https://www.anaconda.com/products/distribution).
+1. A Python environment
 
-2. The [expyriment module](https://www.expyriment.org) (check the installation instructions at <https://docs.expyriment.org/Installation.html>).
+   E.g., [Anaconda Python 3](https://www.anaconda.com/products/distribution).
+
+2. The [expyriment module](https://www.expyriment.org) 
+
+   Check installation instructions at <https://docs.expyriment.org/Installation.html>).
 
 3. A local copy of <https://github.com/chrplr/tutorial-expyriment.git>, which can obtain by by downloading this [zip file](https://github.com/chrplr/tutorial-expyriment/archive/refs/heads/main.zip) or with git:
 
          git clone https://github.com/chrplr/tutorial-expyriment
 	  
 
-We assume that you know how to execute Python code from a command line in a terminal (see, e.g., <https://www.youtube.com/watch?v=2yhcWvBt7ZE>).
 
-
-
-
+Note: This tutorial assumes that you know how to execute Python code from a command line in a terminal window (if you don't, see, e.g., <https://www.youtube.com/watch?v=2yhcWvBt7ZE>).
 
 
 
@@ -89,18 +90,18 @@ Note: You will need to press the space bar to quit it.
 
     You can import this file data in Python into a pandas dataframe using:
 
-        pandas.read_csv('filename.xpd', comment='#')
+           pandas.read_csv('filename.xpd', comment='#')
 
     or in R:
    
-		read.csv('filename.xpd', comment.char = '#')
+		   read.csv('filename.xpd', comment.char = '#')
 
 3. Have a look at the source code.
 
    Its core consists of:
 
- 		     target = stimuli.FixCross(size=(50, 50), line_width=4)
-		     blankscreen = stimuli.BlankScreen()
+           target = stimuli.FixCross(size=(50, 50), line_width=4)
+           blankscreen = stimuli.BlankScreen()
 
 		   for i_trial in range(N_TRIALS):
 			   blankscreen.present()
@@ -110,7 +111,7 @@ Note: You will need to press the space bar to quit it.
 			   key, rt = exp.keyboard.wait(duration=MAX_RESPONSE_DELAY)
 			   exp.data.add([i_trial, waiting_time, key, rt])
 
-# simple detection of audio events
+# Simple detection of audio events
 
 1. Download [simple-detection-audio-expyriment.py](examples/simple_reaction_times/simple-detection-audio-expyriment.py), as well as the 
 
@@ -124,34 +125,42 @@ Note: You will need to press the space bar to quit it.
 
         target = stimuli.FixCross(size=(50, 50), line_width=4)
 		
-   which was changed into
+   which was changed into:
 
 	    target = stimuli.Audio('click.wav')
 
+   The code in the main loop remains the same!
 
 # Simple decision (parity task)
 
-* Run [parity.py](examples/parity_decision/parity.py)
 
-* Run [parity_feedback.py](examples/parity_decision/parity_feedback.py)
+Let' now see the case where the participant must take a decision at each trial and press one of two keys. 
 
-* See also [parity_short.py](examples/parity_short/really_short_exp.py) (very nice example from expyriment's documentation)
+In [parity.py](examples/parity_decision/parity.py), the participant must determine the parity of a single digit number.
 
+[parity_feedback.py](examples/parity_decision/parity_feedback.py)
+adds auditory feedback when the response is wrong.
+
+
+Note: See also [parity_short.py](examples/parity_short/really_short_exp.py), a very short example from expyriment's documentation.
 
 
 # Simple decisions (left vs. right)
 
-[left_right_detection.py](examples/left_right_detection_task/left_right_detection.py)
 
-# `Trial` and `Block` objects
+[left_right_detection.py](examples/left_right_detection_task/left_right_detection.py) is a similar example as parity.
 
-The `design` submodule of expyriment provides `Trial` and `Block` objects to structure the experiment (Note that these objects are in no way necessary to present stimuli.)
+# `Trial` and `Block`
+
+The `design` submodule of expyriment provides `Trial` and `Block` objects to structure the experiment. 
 
 * [grey-levels.py](examples/simple_reaction_times/grey-levels.py) illustrates the use of `set_factor()` and `get_factor()` for trials.
 
 * [left_right_center_detection.py](examples/left_right_detection_task/left_right_center_detection.py)
 q
 * [simple-detection-audiovisual.py](examples/simple_reaction_times/simple-detection-audiovisual.py)
+
+(Remark that these objects are in no way necessary to present stimuli! You can program without them if its makes the code more readable)
 
 # More complex examples:
 
